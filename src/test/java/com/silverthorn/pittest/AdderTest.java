@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"file:src/main/resources/META-INF/applicationContext*.xml"})
+@ContextConfiguration(locations={"classpath:**/META-INF/applicationContext*.xml"})
 public class AdderTest {
 
 	@Autowired
@@ -18,6 +18,11 @@ public class AdderTest {
 	@Test
 	public void testAdd() {
 		assertEquals(2, adder.add(1, 1));
+	}
+
+	@Test
+	public void testAddAgain() {
+		assertEquals(4, adder.add(2, 2));
 	}
 
 }
